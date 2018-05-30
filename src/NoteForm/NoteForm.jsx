@@ -22,7 +22,7 @@ class NoteForm extends Component {
 	addNote() {
 		if (this.state.newNoteContent !== '') {
 			this.props.updateNoteList(this.state.newNoteContent);
-
+console.log('can\'t do that');
 			this.setState({
 				newNoteContent: ''
 			});
