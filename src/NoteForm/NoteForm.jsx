@@ -20,14 +20,18 @@ class NoteForm extends Component {
 	}
 
 	addNote() {
-		this.props.updateNoteList(this.state.newNoteContent);
+		if (this.state.newNoteContent !== '') {
+			this.props.updateNoteList(this.state.newNoteContent);
 
-		this.setState({
-			newNoteContent: ''
-		});
+			this.setState({
+				newNoteContent: ''
+			});
+		} else {
+			alert('You have not entered any text');
+		}
 	}
 
-	clearNote(e) {
+	clearNote() {
 		this.setState({
 			newNoteContent: ''
 		});
