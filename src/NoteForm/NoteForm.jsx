@@ -10,6 +10,7 @@ class NoteForm extends Component {
 		// we need to explicitly bind our input
 		this.handleUserInput = this.handleUserInput.bind(this);
 		this.addNote = this.addNote.bind(this);
+		this.clearNote = this.clearNote.bind(this);
 	}
 
 	handleUserInput(e) {
@@ -22,8 +23,14 @@ class NoteForm extends Component {
 		this.props.updateNoteList(this.state.newNoteContent);
 
 		this.setState({
-			newNoteContent: '',
-		})
+			newNoteContent: ''
+		});
+	}
+
+	clearNote(e) {
+		this.setState({
+			newNoteContent: ''
+		});
 	}
 
 	render() {
@@ -35,8 +42,11 @@ class NoteForm extends Component {
 					value={this.state.newNoteContent}
 					onChange={this.handleUserInput}
 				/>
-				<button className="note-button" onClick={this.addNote}>
+				<button className="note-btn" onClick={this.addNote}>
 					Add Note
+				</button>
+				<button className="clear-btn" onClick={this.clearNote}>
+					Clear
 				</button>
 			</div>
 		);
