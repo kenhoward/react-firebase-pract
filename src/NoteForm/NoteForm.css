@@ -1,5 +1,6 @@
 .form-wrapper{
-    margin: auto;
+    margin: 0 auto;
+    min-width: 991px;
 }
 
 .note-button{
@@ -15,15 +16,15 @@
     transition: 0.2s ease-out;
 }
 
-.noteButton:hover{
+.note-button:hover{
     background-color: #02BA85;
     color: #fff;
     transition: 0.2s ease-out;
 }
 
 .note-input{
-    width: 800px;
-    min-width: 800px;
+    width: 500px;
+    min-width: 500px;
     font-size: 1.3em;
     padding-left: 20px;
     border-top-left-radius: 4px;
