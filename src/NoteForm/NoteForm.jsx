@@ -28,18 +28,28 @@ class NoteForm extends Component {
 				newNoteContent: ''
 			});
 		} else {
-			swal('hello');
+			swal('ERROR!', 'Please input some text', 'error');
 		}
 	}
 
-	componentDidMount() {
-		swal('You have not entered any text')
-	}
-
 	clearNote() {
-		this.setState({
-			newNoteContent: ''
-		});
+		if (this.state.newNoteContent !== '') {
+			swal({
+				title: 'Are you sure?',
+				icon: 'warning',
+				buttons: true,
+				dangerMode: true
+			}).then(willDelete => {
+				if (willDelete) {
+					this.setState({
+						newNoteContent: ''
+					});
+					swal('message cleared', {
+						icon: 'success'
+					});
+				}
+			});
+		}
 	}
 
 	render() {
