@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './NoteForm.css';
+import swal from 'sweetalert';
 
 class NoteForm extends Component {
 	constructor(props) {
@@ -22,13 +23,17 @@ class NoteForm extends Component {
 	addNote() {
 		if (this.state.newNoteContent !== '') {
 			this.props.updateNoteList(this.state.newNoteContent);
-console.log('can\'t do that');
+
 			this.setState({
 				newNoteContent: ''
 			});
 		} else {
-			alert('You have not entered any text');
+			swal('hello');
 		}
+	}
+
+	componentDidMount() {
+		swal('You have not entered any text')
 	}
 
 	clearNote() {

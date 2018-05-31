@@ -18,7 +18,7 @@ class Note extends Component {
 	}
 }
 
-Note.PropTypes = {
+Note.propTypes = {
 	noteContent: PropTypes.string
 };
 
