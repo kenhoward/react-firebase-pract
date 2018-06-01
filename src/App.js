@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import Note from './Note/Note';
 import NoteForm from './NoteForm/NoteForm';
 import './App.css';
+import swal from 'sweetalert';
 
 class App extends Component {
 	constructor(props) {

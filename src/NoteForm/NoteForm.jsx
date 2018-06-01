@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import "./NoteForm.css";
-import swal from "sweetalert";
+import React, { Component } from 'react';
+import './NoteForm.css';
+import swal from 'sweetalert';
 
 class NoteForm extends Component {
     constructor(props) {
@@ -20,34 +20,37 @@ class NoteForm extends Component {
         });
     }
 
-    addNote() {
-        if (this.state.newNoteContent !== "") {
-            this.props.updateNoteList(this.state.newNoteContent);
+	addNote() {
+		if (this.state.newNoteContent !== '') {
+			this.props.updateNoteList(this.state.newNoteContent);
 
-            this.setState({
-                newNoteContent: ""
-            });
-        } else {
-            swal("ERROR!", "Please enter some text", "error");
-        }
-    }
+			this.setState({
+				newNoteContent: ''
+			});
+		} else {
+			swal('ERROR!', 'Please input some text', 'error');
+		}
+	}
 
-    clearNote(e) {
-        if (this.state.newNoteContent !== "") {
-            swal({
-                title: "Are you sure you want to clear?",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true
-            }).then(willDelete => {
-                if (willDelete) {
+	clearNote() {
+		if (this.state.newNoteContent !== '') {
+			swal({
+				title: 'Are you sure?',
+				icon: 'warning',
+				buttons: true,
+				dangerMode: true
+			}).then(willDelete => {
+				if (willDelete) {
 					this.setState({
-						newNoteContent: ""
+						newNoteContent: ''
 					});
-                }
-            });
-        }
-    }
+					swal('message cleared', {
+						icon: 'success'
+					});
+				}
+			});
+		}
+	}
 
     render() {
         return (
