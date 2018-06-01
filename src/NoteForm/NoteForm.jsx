@@ -44,9 +44,6 @@ class NoteForm extends Component {
 					this.setState({
 						newNoteContent: ''
 					});
-					swal('message cleared', {
-						icon: 'success'
-					});
 				}
 			});
 		}
