@@ -3,23 +3,23 @@ import './Note.css';
 import PropTypes from 'prop-types';
 
 class Note extends Component {
-	constructor(props) {
-		super(props);
-		this.noteContent = props.noteContent;
-		this.noteId = props.noteId;
-	}
+    constructor(props) {
+        super(props);
+        this.noteContent = props.noteContent;
+        this.noteId = props.noteId;
+    }
 
-	render(props) {
-		return (
-			<div className="note fade-in">
-				<p className="note-content">{this.noteContent}</p>
-			</div>
-		);
-	}
+    render(props) {
+        return (
+            <div className="note fade-in">
+                <p className="note-content">{this.noteContent}</p>
+            </div>
+        );
+    }
 }
 
 Note.propTypes = {
-	noteContent: PropTypes.string
+    noteContent: PropTypes.string
 };
 
 export default Note;

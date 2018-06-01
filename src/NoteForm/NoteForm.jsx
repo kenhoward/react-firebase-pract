@@ -6,7 +6,7 @@ class NoteForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            newNoteContent: ""
+            newNoteContent: ''
         };
         // we need to explicitly bind our input
         this.handleUserInput = this.handleUserInput.bind(this);
@@ -14,40 +14,42 @@ class NoteForm extends Component {
         this.clearNote = this.clearNote.bind(this);
     }
 
+    // handles what the user is typing
     handleUserInput(e) {
         this.setState({
             newNoteContent: e.target.value
         });
     }
 
-	addNote() {
-		if (this.state.newNoteContent !== '') {
-			this.props.updateNoteList(this.state.newNoteContent);
+    addNote() {
+        const newNote = this.state.newNoteContent;
+        if (newNote !== '') {
+            this.props.updateNoteList(newNote);
 
-			this.setState({
-				newNoteContent: ''
-			});
-		} else {
-			swal('ERROR!', 'Please input some text', 'error');
-		}
-	}
+            this.setState({
+                newNoteContent: ''
+            });
+        } else {
+            swal('ERROR!', 'Please input some text', 'error');
+        }
+    }
 
-	clearNote() {
-		if (this.state.newNoteContent !== '') {
-			swal({
-				title: 'Are you sure?',
-				icon: 'warning',
-				buttons: true,
-				dangerMode: true
-			}).then(willDelete => {
-				if (willDelete) {
-					this.setState({
-						newNoteContent: ''
-					});
-				}
-			});
-		}
-	}
+    clearNote() {
+        if (this.state.newNoteContent !== '') {
+            swal({
+                title: 'Are you sure?',
+                icon: 'warning',
+                buttons: true,
+                dangerMode: true
+            }).then(willDelete => {
+                if (willDelete) {
+                    this.setState({
+                        newNoteContent: ''
+                    });
+                }
+            });
+        }
+    }
 
     render() {
         return (
@@ -57,6 +59,7 @@ class NoteForm extends Component {
                     placeholder="Write a new note..."
                     value={this.state.newNoteContent}
                     onChange={this.handleUserInput}
+                    pattern="^\S+$"
                 />
                 <button className="note-btn" onClick={this.addNote}>
                     Add Note
