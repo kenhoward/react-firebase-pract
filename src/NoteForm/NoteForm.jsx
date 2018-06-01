@@ -59,7 +59,6 @@ class NoteForm extends Component {
                     placeholder="Write a new note..."
                     value={this.state.newNoteContent}
                     onChange={this.handleUserInput}
-                    pattern="^\S+$"
                 />
                 <button className="note-btn" onClick={this.addNote}>
                     Add Note
